@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <div class="jpeg"><link rel="stylesheet" href="style.css" /></div>
+    <title>BlackJack by KP</title>
+  </head>
+  <body>
+    <div class="modal-container" id="modal_container">
+      <div class="modal">
+        <h2>This game is easy ♠️♥️♣️♦️</h2>
+        <p>
+          Be as close as possible to number 21!
+          <br />That is whole point of BlackJack Game. <br />Learn more about
+          <a href="https://www.youtube.com/watch?v=eyoh-Ku9TCI" target="_blank"
+            >here!</a
+          >
+        </p>
+        <button id="close">Close me</button>
+      </div>
+    </div>
+    <div class="container">
+      <!--USERNAME INPUT-->
+      <!-- <div id="input" for="nameField">
+        <input
+          type="text"
+          class="input"
+          placeholder="Username"
+          name="uname"
+          required
+        /> 
+        <button class="Save" onclick="saveUsername ()">Save</button>
+      </div> -->
+      <div class="chips"><p class="chips">loremI</p></div>
+
+      <h1>BlackJack Game</h1>
+
+      <div class="desktopParent">
+        <div class="desktop1">
+          <!--PLAYER DESKTOP-->
+          <p class="message-el">LOREMa IPSUM</p>
+          <p sum class="sum-el">Your sum is now 0</p>
+          <p class="cards">Your cards:</p>
+        </div>
+
+        <div class="desktop2">
+          <!--DEALER DESKTOP-->
+          <p class="message-el1">LOREM IPSUM</p>
+          <p sum class="sum-el1">Dealer sum is now 0</p>
+          <p class="cards1">Dealer cards:</p>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="button" onclick="startGame()">Start the Game</button>
+        <button class="button" onclick="newCard()">Draw another</button>
+        <button class="button" onclick="fold()">Fold</button>
+        <button class="button" id="open">How to play?</button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

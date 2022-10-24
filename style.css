@@ -1,0 +1,169 @@
+body {
+  background-image: url("karty.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  color: wheat;
+  font-family: "Cinzel", serif;
+  text-shadow: 5px 2px #ff0000;
+}
+
+.container {
+  margin-top: 100px;
+
+  display: grid;
+  place-items: center;
+}
+/* INPUT */
+
+input {
+  background-color: #ff0000;
+  height: 30px;
+  width: 230px;
+  color: wheat;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-left: 1300px;
+  margin-bottom: 10px;
+  opacity: 1;
+}
+input.show {
+  opacity: 0;
+}
+
+/* DESKTOP */
+/* DESKTOP */
+/* DESKTOP */
+.desktopParent {
+  border: 1px;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+.desktop1 {
+  display: inline-block;
+  border: 1px;
+  padding: 150px;
+  vertical-align: middle;
+}
+
+.desktop2 {
+  display: inline-block;
+  border: 1px;
+  padding: 150px;
+  vertical-align: middle;
+}
+
+/* ELEMENTY */
+/* ELEMENTY */
+/* ELEMENTY */
+.message-el {
+  margin-bottom: 100px;
+  font-size: 40px;
+}
+
+.sum-el {
+  color: wheat;
+  font-size: 30px;
+}
+
+.cards {
+  font-size: 30px;
+}
+
+.chips {
+  font-size: 30px;
+  margin-left: 1300px;
+}
+
+.message-el1 {
+  margin-bottom: 100px;
+  font-size: 40px;
+}
+
+.sum-el1 {
+  color: wheat;
+  font-size: 30px;
+}
+
+.cards1 {
+  font-size: 30px;
+}
+
+/* HEADERY */
+/* HEADERY */
+/* HEADERY */
+h1 {
+  color: goldenrod;
+  margin-bottom: 10px;
+  font-size: 60px;
+}
+
+h2 {
+  color: goldenrod;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+
+/* BUTTONY */
+/* BUTTONY */
+/* BUTTONY */
+
+button {
+  background-color: #ff0000;
+  border: 0;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: wheat;
+  padding: 10px 15px;
+  font-size: 15px;
+  width: 200px;
+  margin: 10px;
+  font-family: "Cinzel", serif;
+}
+
+.buttons {
+  display: inline-block;
+}
+
+/* MODALE */
+/* MODALE */
+/* MODALE */
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.4s ease;
+}
+.modal {
+  color: black;
+  background-color: rgb(247, 215, 156);
+  border-radius: 5 px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: none;
+  font-size: 20px;
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  border-radius: 20px;
+}
+.modal-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}

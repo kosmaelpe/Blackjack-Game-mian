@@ -42,6 +42,7 @@ function startGame() {
   let firstCard = getRandomCard();
   let secondCard = getRandomCard();
   cards = [firstCard, secondCard];
+  //
   sum = firstCard + secondCard;
   //dealer
   dealerAlive = true;
@@ -50,6 +51,7 @@ function startGame() {
   dealerSum = dealerFirstCard + " X";
   renderGame();
 }
+
 //
 //
 //
@@ -81,12 +83,13 @@ function renderGame() {
     dealerCards.textContent += dealerCardsArray[i] + " ";
   }
 
-  if (dealerSum <= 20) {
+  if (dealerSum < sum) {
     dealerMess = "Waiting for your decision ";
     DealerHasBlackJack = false;
     dealerAlive = true;
-  } else if (dealerSum === 21) {
-    dealerMess = "Waiting for your decision";
+  } else if (dealerSum > sum && dealerSum < 22) {
+    dealerMess = "Iam the winner";
+
     DealerHasBlackJack = true;
     dealerAlive = true;
   } else {
@@ -114,6 +117,22 @@ function newCard() {
     return;
   }
 }
+// FOLD FUNCTION
+function fold() {
+  if (isAlive === true) {
+    let newDealerCard = getRandomCard();
+    dealerSum += newDealerCard;
+    dealerCardsArray.push(newDealerCard);
+    removeX();
+    renderGame();
+  }
+}
+
+function removeX() {
+  dealerSum = dealerCardsArray.reduce((accumulator, value) => {
+    return accumulator + value;
+  }, 0);
+}
 
 //CREDITS
 
@@ -130,17 +149,6 @@ let chips = document.querySelector(".chips"); // element
 chips.textContent = player.Name + "$" + player.Chips; //player.Name - // INPUT OFF SO FUNCTION ON
 
 const winValue = 10;
-
-// FOLD FUNCTION
-function fold() {
-  if (DealerHasBlackJack === false && dealerAlive === true) {
-    let newDealerCard = getRandomCard();
-    dealerSum += newDealerCard;
-    dealerCards.push(newDealerCard);
-
-    renderGame();
-  }
-}
 
 // adding winning
 function checkPot() {

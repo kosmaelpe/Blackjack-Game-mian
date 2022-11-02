@@ -133,6 +133,11 @@ button {
   display: inline-block;
 }
 
+#newCardButton.hidden {
+  opacity: 0;
+  display: none;
+}
+
 /* MODALE */
 /* MODALE */
 /* MODALE */

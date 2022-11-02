@@ -22,6 +22,7 @@ let messageEl1 = document.getElementsByClassName("message-el1");
 let sumEl1 = document.querySelector(".sum-el1");
 let dealerMess = "";
 let DealerHasBlackJack = false;
+let foldcheck = false;
 
 //RANDOM CARD FOR THE GAME
 function getRandomCard() {
@@ -37,6 +38,7 @@ function getRandomCard() {
 
 //TWO RANDOM CARDS FOR THE START AFTER CLICK
 function startGame() {
+  newCardButton.classList.remove("hidden");
   //player
   isAlive = true;
   let firstCard = getRandomCard();
@@ -64,12 +66,12 @@ function renderGame() {
   }
 
   if (sum <= 20) {
-    mess = "Dealer says : - Want to take one more? 🤪";
+    mess = "One more?";
   } else if (sum === 21) {
     mess = "Dealer says : - You've got a blackjack! 😍";
     hasBlackJack = true;
   } else {
-    mess = "Dealer says : - Sorry, that's too much 😌";
+    mess = "Dealer wins 🟢";
     isAlive = false;
   }
   messageEl[0].textContent = mess;
@@ -78,30 +80,47 @@ function renderGame() {
   //
   //dealer messenge
 
+  dealermessenge();
+
+  checkPot();
+}
+function dealermessenge() {
   dealerCards.textContent = "Cards: ";
   for (let i = 0; i < dealerCardsArray.length; i++) {
     dealerCards.textContent += dealerCardsArray[i] + " ";
   }
 
   if (dealerSum < sum) {
-    dealerMess = "Waiting for your decision ";
+    dealerMess = "You have better cards 🟢 ";
+    mess = "You won!";
     DealerHasBlackJack = false;
     dealerAlive = true;
   } else if (dealerSum > sum && dealerSum < 22) {
-    dealerMess = "Iam the winner";
+    dealerMess = "Dealer wins 🟢";
+    mess = "You lost!";
 
     DealerHasBlackJack = true;
     dealerAlive = true;
   } else {
-    dealerMess = "Waiting for your decision";
+    dealerMess = "Game in progress...";
     dealerAlive = false;
     DealerHasBlackJack = false;
   }
   messageEl1[0].textContent = dealerMess;
   sumEl1.textContent = "Sum: " + dealerSum;
 
-  checkPot();
+  //
+  //
+  //
+  //
+  //...............nie dziala display gracza po przegranej
+  //
+  //
+
+  //
+  //
 }
+
 //
 //
 //
@@ -119,12 +138,14 @@ function newCard() {
 }
 // FOLD FUNCTION
 function fold() {
+  foldcheck = true;
+  newCardButton.classList.add("hidden");
   if (isAlive === true) {
     let newDealerCard = getRandomCard();
     dealerSum += newDealerCard;
     dealerCardsArray.push(newDealerCard);
     removeX();
-    renderGame();
+    moreNumber();
   }
 }
 
@@ -132,6 +153,20 @@ function removeX() {
   dealerSum = dealerCardsArray.reduce((accumulator, value) => {
     return accumulator + value;
   }, 0);
+}
+
+//
+//
+// function for full fold
+function moreNumber() {
+  if (dealerSum < 21) {
+    let newDealerCard2 = getRandomCard();
+    dealerSum += newDealerCard2;
+    dealerCardsArray.push(newDealerCard2);
+  } else {
+    return;
+  }
+  renderGame();
 }
 
 //CREDITS
@@ -171,3 +206,8 @@ close.addEventListener("click", () => {
 // 1. DEALER DESKTOP
 // 2. USERNAME INPUT AND BUTTON
 // 3. BETTING SYSTEM
+
+/// mozliwosci
+/// 1. GRACZ WYGRYWA
+/// 2. SI WYGRYWA
+/// 3. GRACZ WCHODZI - DWIE 11 - LOSS

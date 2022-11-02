@@ -66,7 +66,7 @@ function renderGame() {
   }
 
   if (sum <= 20) {
-    mess = "One more?";
+    mess = "Draw another or fold";
   } else if (sum === 21) {
     mess = "Dealer says : - You've got a blackjack! 😍";
     hasBlackJack = true;
@@ -93,6 +93,7 @@ function dealermessenge() {
   if (dealerSum < sum) {
     dealerMess = "You have better cards 🟢 ";
     mess = "You won!";
+
     DealerHasBlackJack = false;
     dealerAlive = true;
   } else if (dealerSum > sum && dealerSum < 22) {
@@ -106,6 +107,7 @@ function dealermessenge() {
     dealerAlive = false;
     DealerHasBlackJack = false;
   }
+
   messageEl1[0].textContent = dealerMess;
   sumEl1.textContent = "Sum: " + dealerSum;
 
@@ -203,9 +205,10 @@ close.addEventListener("click", () => {
 });
 
 //UPDATES
-// 1. DEALER DESKTOP
-// 2. USERNAME INPUT AND BUTTON
+// 1. DEALER DESKTOP - DONE
+// 2. USERNAME INPUT AND BUTTON - DONE
 // 3. BETTING SYSTEM
+// 4. WYGRANA - PRZEGRANA - DRAW CO DALEJ?
 
 /// mozliwosci
 /// 1. GRACZ WYGRYWA
